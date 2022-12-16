@@ -4,13 +4,12 @@ import './drawer.css';
 
 type Props = { 
   children:ReactNode,
-  title:string,
-  description:string
+  description:string,
+  className:string,
+  title:ReactNode
 } 
 
-const SideBarMenu = ({children, title, description}:Props) =>{
-  type Props = { onClick:React.MouseEventHandler<SVGSVGElement> }
-  
+const SideBarMenu = ({children, description, className, title}:Props) =>{
   const HamburguerIcon =() => (
       <svg 
         className="md:hidden block w-6 h-6 cursor-pointer" 
@@ -31,11 +30,11 @@ const SideBarMenu = ({children, title, description}:Props) =>{
         </AlertDialog.Trigger>
       <AlertDialog.Portal>
         <AlertDialog.Overlay className="AlertDialogOverlay"/>
-        <AlertDialog.Content className="AlertDialogContent overflow-scroll">
+        <AlertDialog.Content className={`AlertDialogContent overflow-scroll p-0 ${className}`}>
             
-          <AlertDialog.Title className="AlertDialogTitle">
+          <AlertDialog.Title className="AlertDialogTitle text-center bg-main p-8 text-secondary stick w-full">
             {title}
-            <AlertDialog.Cancel className=" float-right ">
+            <AlertDialog.Cancel className=" float-right font-bold text-1xl ">
               X
             </AlertDialog.Cancel>
           </AlertDialog.Title>

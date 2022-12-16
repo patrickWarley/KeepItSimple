@@ -25,13 +25,13 @@ const NavBar = () => {
   const Menu =({className}:Props) => {
     return(
       <div className={`w-full md:flex md:flex-1 md:w-auto md:justify-between ${className}`}>
-          <div className="hidden md:block py-2 flex items-center md:p-3 md:m-2 bg-blue-900 text-blue-100 rounded hover:bg-blue-100 hover:text-blue-900">
-            Cursos
-            <RxTriangleDown/>
-          </div>
+        <div className="hidden md:block py-2 flex items-center md:p-3 md:m-2 bg-blue-900 text-blue-100 rounded hover:bg-blue-100 hover:text-blue-900">
+          Cursos
+          <RxTriangleDown/>
+        </div>
           
         <ul className="text-base pt-4 md:flex md:items-center md:pt-0">
-          <li>
+          <li className="hidden md:block">
             <input 
               type="text" 
               className="rounded p-3 m-2 w-full md:w-80 text-center text-blue-900 border-none" 
@@ -41,7 +41,7 @@ const NavBar = () => {
           {courses.map(category => {
             return( 
             <li className="block p-2 m-2 hover:text-blue-200"> 
-              <a href="#">{category.title}</a>
+              <a href="#" className="font-bold">{category.title}</a>
               <ul>
                 {category.courses.map(course => <li className="block p-2 m-2 hover:text-blue-200">{course}</li>)}
               </ul>
@@ -52,9 +52,9 @@ const NavBar = () => {
         
         </ul>
           
-        <div className=" md:w-4/12 md:flex md:flex-row flex-col md:place-content-end items-center ">
-          <button className="w-full md:w-auto rounded px-6 py-3 m-2 bg-blue-500 text-white hover:text-blue-900 hover:bg-blue-200">Login</button>
-          <button className="w-full md:w-auto rounded px-6 py-3 m-2 bg-slate-700  hover:text-blue-900 hover:bg-blue-200">Cadastrar-se</button>
+        <div className=" md:w-4/12 md:flex md:flex-row flex-col flex md:place-content-end items-center ">
+          <button className="p-0 w-11/12 inline-block md:w-auto rounded px-6 py-3 m-2 bg-main text-secondary hover:underline ">Login</button>
+          <button className="p-0 w-11/12 inline-block md:w-auto rounded px-6 py-3 m-2 border-main border-2 hover:underline">Cadastrar-se</button>
         </div>
       </div>
     );
@@ -68,7 +68,10 @@ const NavBar = () => {
         </div>
 
         <div className="md:hidden">
-          <SideBarMenu title="KeepItSimple" description="">
+          <SideBarMenu
+            title={<span className=" text drop-shadow text-2xl font-extrabold ">KeepItSimple</span>}
+            description="" 
+            className="text-main bg-secondary">
             <Menu className="menu"/>
           </SideBarMenu>
         </div>
