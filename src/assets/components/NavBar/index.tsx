@@ -20,7 +20,9 @@ const NavBar = () => {
       title: 'Pastelaria',
       courses: ['Flango', 'Carne', 'Queijo']
     }
-  ]
+  ];
+
+  const buttonClassNames = "p-0 inline-block md:w-auto rounded px-6 py-3 m-2";
 
   type Props = {
     className: string
@@ -59,10 +61,11 @@ const NavBar = () => {
           <li className="block p-2 m-2 hover:text-blue-200"> <a href="#"></a></li>
 
         </ul>
-
-        <div className=" md:w-4/12 md:flex md:flex-row flex-col flex md:place-content-end items-center ">
-          <button className="p-0 w-11/12 inline-block md:w-auto rounded px-6 py-3 m-2 bg-main text-secondary hover:underline ">Login</button>
-          <button className="p-0 w-11/12 inline-block md:w-auto rounded px-6 py-3 m-2 border-main border-2 hover:underline">Cadastrar-se</button>
+        <div className="fixed w-full bottom-0 md:absolute">
+          <div className="flex justify-center md:w-full md:flex md:flex-row flex-col md:place-content-end">
+            <button className={`${buttonClassNames} bg-main text-secondary hover:underline`} >Login</button>
+            <button className={`${buttonClassNames} border-main border-2 hover:underline`}>Cadastrar-se</button>
+          </div>
         </div>
       </div >
     );
